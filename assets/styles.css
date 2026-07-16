@@ -604,7 +604,7 @@ img[src$="/g6.jpg"]{object-position:35% 45%}
 [style*="g6.jpg"]{background-position:35% 45%}
 
 /* === auto-paleta ze zdjęć klienta (dopasowanie do estetyki socials) === */
-:root{--accent:#B62B47;--accent-d:#911D34;--accent-soft:rgba(182,43,71,0.10);--paper:#F9F8F8;--paper-2:#EFEDEE;--paper-3:#E8E5E6;}
+:root{--accent:#B4862B;--accent-d:#8F6A1E;--accent-soft:rgba(180,134,43,0.12);--paper:#F7F4EE;--paper-2:#EFE9DC;--paper-3:#EFE9DC;}
 
 /* ============================================================
    STANG AUTO — logo w nav + hero VIDEO (import USA/Kanada)

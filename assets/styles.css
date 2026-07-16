@@ -5,18 +5,18 @@
    ============================================================ */
 
 :root{
-  /* PALETA — jasna, architektoniczna, chłodna */
-  --paper:#f4f5f7;          /* główne tło */
-  --paper-2:#e7e9ee;        /* sekcje alternatywne (chłodny jasny szary) */
-  --paper-3:#e7e9ee;        /* delikatne wypełnienia */
-  --ink:#14171c;            /* tekst główny — chłodny grafit */
-  --ink-soft:#1f242c;       /* nagłówki drugorzędne */
-  --muted:#8b9099;          /* tekst poboczny */
-  --line:rgba(20,23,28,.12);/* hairline */
-  --accent:#c8a04a;         /* stonowany petrol-slate — jedyny akcent */
-  --accent-d:#9a7a31;
-  --accent-soft:rgba(200,160,74,.10);
-  --dark:#14171c;           /* sekcje ciemne (stopka/CTA) */
+  /* PALETA — STANG AUTO: navy + złoto + krem (wg logo), amerykański premium */
+  --paper:#F7F4EE;          /* główne tło — ciepły krem */
+  --paper-2:#EFE9DC;        /* sekcje alternatywne — krem cieplejszy */
+  --paper-3:#EFE9DC;        /* delikatne wypełnienia */
+  --ink:#16223F;            /* tekst główny — granat (navy z logo) */
+  --ink-soft:#2C3A5C;       /* nagłówki drugorzędne */
+  --muted:#6E768C;          /* tekst poboczny — stonowany błękitno-szary */
+  --line:rgba(22,34,63,.13);/* hairline */
+  --accent:#B4862B;         /* złoto z logo — akcenty (eyebrow/tick/hairline) */
+  --accent-d:#8F6A1E;
+  --accent-soft:rgba(180,134,43,.12);
+  --dark:#111B33;           /* sekcje ciemne (stopka/CTA/hero) — głęboki granat */
 
   /* ODSTĘPY — skala 4/8 */
   --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
@@ -93,8 +93,8 @@ p{max-width:65ch}
   transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease),background var(--dur) var(--ease);
   cursor:pointer;border:1px solid transparent;
 }
-.btn-accent{background:var(--accent);color:#fff;box-shadow:var(--sh-sm)}
-.btn-accent:hover{background:var(--accent-d);transform:translateY(-2px);box-shadow:var(--sh-md)}
+.btn-accent{background:var(--dark);color:#fff;box-shadow:var(--sh-sm);border:1px solid var(--dark)}
+.btn-accent:hover{background:#0B1428;border-color:#0B1428;transform:translateY(-2px);box-shadow:var(--sh-md)}
 .btn-accent:active{transform:translateY(0);box-shadow:var(--sh-sm)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
@@ -605,3 +605,20 @@ img[src$="/g6.jpg"]{object-position:35% 45%}
 
 /* === auto-paleta ze zdjęć klienta (dopasowanie do estetyki socials) === */
 :root{--accent:#B62B47;--accent-d:#911D34;--accent-soft:rgba(182,43,71,0.10);--paper:#F9F8F8;--paper-2:#EFEDEE;--paper-3:#E8E5E6;}
+
+/* ============================================================
+   STANG AUTO — logo w nav + hero VIDEO (import USA/Kanada)
+   ============================================================ */
+.brand{flex-direction:row;align-items:center;gap:12px}
+.brand-logo{height:44px;width:auto;display:block;border-radius:6px}
+.brand .name{font-size:1.2rem;letter-spacing:.05em;color:var(--ink)}
+.brand .sub{margin-top:3px}
+/* hero jako wideo: .ha-bg (video) wypełnia kadr, bez animacji Ken Burns */
+video.ha-bg{animation:none!important;background:#0a0c0f}
+.hero-auto .ha-veil{background:linear-gradient(180deg,rgba(10,14,24,.30) 0%,rgba(10,14,24,.10) 38%,rgba(10,14,24,.62) 82%,rgba(10,14,24,.86) 100%)}
+.ha-kicker{color:var(--accent)}
+/* pasek zaufania z realnym akcentem USA */
+.usa-note{display:inline-flex;align-items:center;gap:8px}
+/* hero CTA: złoty (kolor logo), wybija na ciemnym wideo; navy tekst = kontrast OK */
+.ha-cta.btn-accent{background:var(--accent);border-color:var(--accent);color:#111B33;font-weight:600}
+.ha-cta.btn-accent:hover{background:#C99A3A;border-color:#C99A3A;color:#0B1428}

@@ -614,7 +614,11 @@ img[src$="/g6.jpg"]{object-position:35% 45%}
 .brand .name{font-size:1.2rem;letter-spacing:.05em;color:var(--ink)}
 .brand .sub{margin-top:3px}
 /* hero jako wideo: .ha-bg (video) wypełnia kadr, bez animacji Ken Burns */
-video.ha-bg{animation:none!important;background:#0a0c0f}
+video.ha-bg{animation:none!important;background:transparent}
+/* obraz-poster pod wideo: ZAWSZE ostre zdjecie (telefon, blokada autoplay, doczytywanie) */
+.hero-auto .ha-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}
+.hero-auto video.ha-bg{opacity:0;transition:opacity .7s ease}
+.hero-auto video.ha-bg.is-playing{opacity:1}
 .hero-auto .ha-veil{background:linear-gradient(180deg,rgba(10,14,24,.30) 0%,rgba(10,14,24,.10) 38%,rgba(10,14,24,.62) 82%,rgba(10,14,24,.86) 100%)}
 .ha-kicker{color:var(--accent)}
 /* pasek zaufania z realnym akcentem USA */

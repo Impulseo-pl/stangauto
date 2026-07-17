@@ -103,6 +103,9 @@
 (function () {
   var v = document.querySelector('video.ha-bg[data-hero-video]');
   if (!v) return;
+  // wideo ujawnia się (opacity 1) dopiero gdy NAPRAWDĘ gra; do tego czasu widać ostry obraz-poster.
+  // Blokada autoplay / telefon / doczytywanie -> zostaje ostre zdjęcie, nigdy czarna klatka.
+  v.addEventListener('playing', function () { v.classList.add('is-playing'); });
   var wide = window.matchMedia('(min-width: 768px)').matches;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData = navigator.connection && navigator.connection.saveData;
@@ -113,8 +116,10 @@
   v.appendChild(s);
   v.preload = 'auto';
   v.load();
-  var pr = v.play();
-  if (pr && pr.catch) pr.catch(function () {});
+  var tryPlay = function () { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); };
+  tryPlay();
+  // druga próba po doczytaniu danych (część przeglądarek odrzuca play() zanim jest klatka)
+  v.addEventListener('loadeddata', tryPlay, { once: true });
 })();
 
 /* === licznik otwarć demo (buy-signal) + geo === */
